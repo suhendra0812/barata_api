@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import Beam, Planning, Satellite, Sensor
-from .serializers import BeamSerializer, PlanningSerializer, SatelliteSerializer, SensorSerializer
+from .models import Beam, CosmoSkyMedPlan, RadarsatPlan, Satellite, Sensor
+from .serializers import BeamSerializer, CosmoSkyMedPlanSerializer, RadarsatPlanSerializer, SatelliteSerializer, SensorSerializer
 
 # Create your views here.
 
@@ -20,6 +20,11 @@ class BeamAPIListView(generics.ListCreateAPIView):
     serializer_class = BeamSerializer
 
 
-class PlanningAPIListView(generics.ListCreateAPIView):
-    queryset = Planning.objects.all()
-    serializer_class = PlanningSerializer
+class CosmoSkyMedPlanAPIListView(generics.ListCreateAPIView):
+    queryset = CosmoSkyMedPlan.objects.all()
+    serializer_class = CosmoSkyMedPlanSerializer
+
+
+class RadarsatPlanAPIListView(generics.ListCreateAPIView):
+    queryset = RadarsatPlan.objects.all()
+    serializer_class = RadarsatPlanSerializer

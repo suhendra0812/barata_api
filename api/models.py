@@ -76,7 +76,7 @@ class Beam(models.Model):
         return self.name
 
 
-class Planning(models.Model):
+class RadarsatPlan(models.Model):
     order_id = models.IntegerField(unique=True)
     satellite = models.ForeignKey(Satellite, on_delete=models.SET_NULL, null=True, blank=True)
     sensor = models.ForeignKey(Sensor, on_delete=models.SET_NULL, null=True, blank=True)
@@ -88,6 +88,27 @@ class Planning(models.Model):
     sensing_stop = models.DateTimeField()
     downlink_start = models.DateTimeField(null=True, blank=True)
     downlink_stop = models.DateTimeField(null=True, blank=True)
+    scene_number = models.IntegerField()
+    user = models.CharField(max_length=50, null=True, blank=True)
+    application = models.CharField(max_length=50, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.order_id)
+
+
+class CosmoSkyMedPlan(models.Model):
+    order_id = models.IntegerField(unique=True)
+    pr_id = models.IntegerField(unique=True)
+    satellite = models.ForeignKey(Satellite, on_delete=models.SET_NULL, null=True, blank=True)
+    sensor = models.ForeignKey(Sensor, on_delete=models.SET_NULL, null=True, blank=True)
+    beam = models.ForeignKey(Beam, on_delete=models.SET_NULL, null=True, blank=True)
+    polarisation = models.CharField(max_length=2, choices=POLARISATIONS)
+    side = models.CharField(max_length=5, choices=SIDES)
+    angle = models.FloatField(null=True, blank=True)
+    sensing_start = models.DateTimeField()
+    sensing_stop = models.DateTimeField()
+    visibility_start = models.DateTimeField(null=True, blank=True)
+    visibility_stop = models.DateTimeField(null=True, blank=True)
     scene_number = models.IntegerField()
     user = models.CharField(max_length=50, null=True, blank=True)
     application = models.CharField(max_length=50, null=True, blank=True)

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Satellite, Sensor, Beam, Planning
+from .models import RadarsatPlan, Satellite, Sensor, Beam, CosmoSkyMedPlan
 
 
 class SatelliteSerializer(serializers.ModelSerializer):
@@ -21,7 +21,13 @@ class BeamSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class PlanningSerializer(serializers.ModelSerializer):
+class CosmoSkyMedPlanSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Planning
+        model = CosmoSkyMedPlan
+        fields = '__all__'
+
+
+class RadarsatPlanSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RadarsatPlan
         fields = '__all__'
