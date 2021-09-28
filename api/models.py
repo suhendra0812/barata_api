@@ -56,6 +56,9 @@ def get_angle(beam):
 class Satellite(models.Model):
     name = models.CharField(max_length=20, choices=SATELLITES)
 
+    class Meta:
+        db_table = "satellite"
+    
     def __str__(self):
         return self.name
     
@@ -64,6 +67,9 @@ class Sensor(models.Model):
     satellite = models.ForeignKey(Satellite, on_delete=models.CASCADE)
     name = models.CharField(max_length=30, choices=SENSORS)
 
+    class Meta:
+        db_table = "sensor"
+    
     def __str__(self):
         return self.name
 
@@ -72,28 +78,11 @@ class Beam(models.Model):
     sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE)
     name = models.CharField(max_length=10, choices=BEAMS)
 
+    class Meta:
+        db_table = "beam"
+
     def __str__(self):
         return self.name
-
-
-class RadarsatPlan(models.Model):
-    order_id = models.IntegerField(unique=True)
-    satellite = models.ForeignKey(Satellite, on_delete=models.SET_NULL, null=True, blank=True)
-    sensor = models.ForeignKey(Sensor, on_delete=models.SET_NULL, null=True, blank=True)
-    beam = models.ForeignKey(Beam, on_delete=models.SET_NULL, null=True, blank=True)
-    polarisation = models.CharField(max_length=2, choices=POLARISATIONS)
-    side = models.CharField(max_length=5, choices=SIDES)
-    angle = models.FloatField(null=True, blank=True)
-    sensing_start = models.DateTimeField()
-    sensing_stop = models.DateTimeField()
-    downlink_start = models.DateTimeField(null=True, blank=True)
-    downlink_stop = models.DateTimeField(null=True, blank=True)
-    scene_number = models.IntegerField()
-    user = models.CharField(max_length=50, null=True, blank=True)
-    application = models.CharField(max_length=50, null=True, blank=True)
-
-    def __str__(self):
-        return str(self.order_id)
 
 
 class CosmoSkyMedPlan(models.Model):
@@ -112,6 +101,34 @@ class CosmoSkyMedPlan(models.Model):
     scene_number = models.IntegerField()
     user = models.CharField(max_length=50, null=True, blank=True)
     application = models.CharField(max_length=50, null=True, blank=True)
+
+    class Meta:
+        db_table = "csk_plan"
+        verbose_name = "COSMO-SkyMed Plan"
+
+    def __str__(self):
+        return str(self.order_id)
+
+
+class RadarsatPlan(models.Model):
+    order_id = models.IntegerField(unique=True)
+    satellite = models.ForeignKey(Satellite, on_delete=models.SET_NULL, null=True, blank=True)
+    sensor = models.ForeignKey(Sensor, on_delete=models.SET_NULL, null=True, blank=True)
+    beam = models.ForeignKey(Beam, on_delete=models.SET_NULL, null=True, blank=True)
+    polarisation = models.CharField(max_length=2, choices=POLARISATIONS)
+    side = models.CharField(max_length=5, choices=SIDES)
+    angle = models.FloatField(null=True, blank=True)
+    sensing_start = models.DateTimeField()
+    sensing_stop = models.DateTimeField()
+    downlink_start = models.DateTimeField(null=True, blank=True)
+    downlink_stop = models.DateTimeField(null=True, blank=True)
+    scene_number = models.IntegerField()
+    user = models.CharField(max_length=50, null=True, blank=True)
+    application = models.CharField(max_length=50, null=True, blank=True)
+
+    class Meta:
+        db_table = "rs_plan"
+        verbose_name = "RADARSAT-2 Plan"
 
     def __str__(self):
         return str(self.order_id)
