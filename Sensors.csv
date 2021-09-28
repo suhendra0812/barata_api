@@ -1,0 +1,16 @@
+id,satellite_id,name
+1,1,StripMap (HIMAGE)
+2,2,StripMap (HIMAGE)
+3,3,StripMap (HIMAGE)
+4,4,StripMap (HIMAGE)
+5,2,ScanSAR (WideRegion)
+6,3,ScanSAR (WideRegion)
+7,3,ScanSAR (WideRegion)
+8,4,ScanSAR (WideRegion)
+9,1,ScanSAR (HugeRegion)
+10,2,ScanSAR (HugeRegion)
+11,3,ScanSAR (HugeRegion)
+12,4,ScanSAR (HugeRegion)
+13,5,High Incidence
+14,5,Extra Fine
+15,5,ScanSAR Narrow

@@ -83,7 +83,7 @@ class Planning(models.Model):
     beam = models.ForeignKey(Beam, on_delete=models.SET_NULL, null=True, blank=True)
     polarisation = models.CharField(max_length=2, choices=POLARISATIONS)
     side = models.CharField(max_length=5, choices=SIDES)
-    angle = models.FloatField(null=True, blank=True, default=get_angle(beam))
+    angle = models.FloatField(null=True, blank=True)
     sensing_start = models.DateTimeField()
     sensing_stop = models.DateTimeField()
     downlink_start = models.DateTimeField(null=True, blank=True)
@@ -93,6 +93,6 @@ class Planning(models.Model):
     application = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
-        return self.order_id
+        return str(self.order_id)
     
     
