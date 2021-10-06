@@ -3,4 +3,5 @@
 # command to run project, replace ${FILE_NAME} with your main file
 poetry run git add .
 poetry run git commit -m "add gitignore"
+poertry run git remote add origin https://suhendra0812:kuningan08121995@github.com/suhendra0812/barata_api.git
 poetry run git push origin main
