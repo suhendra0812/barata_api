@@ -4,6 +4,8 @@
 
 # dcoder files
 .dcoder_run
+poetry.lock
+pyproject.toml
 
 ### Django ###
 *.log

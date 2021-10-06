@@ -1,9 +1,14 @@
+from django.shortcuts import render
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Beam, CosmoSkyMedPlan, RadarsatPlan, Satellite, Sensor
 from .serializers import BeamSerializer, CosmoSkyMedPlanSerializer, RadarsatPlanSerializer, SatelliteSerializer, SensorSerializer
 
 # Create your views here.
+def api_home(request):
+    context = {}
+    return render(request, 'api/api_home.html', context)
+    
 
 class SatelliteAPIListView(generics.ListCreateAPIView):
     queryset = Satellite.objects.all()

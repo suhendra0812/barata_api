@@ -1,5 +1,12 @@
 from django.urls import path
-from .views import BeamAPIListView, CosmoSkyMedPlanAPIListView, RadarsatPlanAPIListView, SatelliteAPIListView, SensorAPIListView
+from .views import (
+    api_home,
+    BeamAPIListView,
+    CosmoSkyMedPlanAPIListView,
+    RadarsatPlanAPIListView,
+    SatelliteAPIListView,
+    SensorAPIListView
+)
 
 
 urlpatterns = [
@@ -8,4 +15,5 @@ urlpatterns = [
     path('beam/', BeamAPIListView.as_view(), name='beam_api'),
     path('csk-plan/', CosmoSkyMedPlanAPIListView.as_view(), name='cskplan_api'),
     path('rs-plan/', RadarsatPlanAPIListView.as_view(), name='rsplan_api'),
+    path('', api_home, name='api_home')
 ]

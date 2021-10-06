@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}API{% endblock title %}
+{% block content %}
+<div class="api">
+    <h1>API</h1>
+    <p>Ini adalah list API yang tersedia:</p>
+    <ul>
+        <li><a href="{% url 'satellite_api' %}">Satellite API</a></li>
+        <li><a href="{% url 'sensor_api' %}">Sensor API</a></li>
+        <li><a href="{% url 'beam_api' %}">Beam API</a></li>
+        <li><a href="{% url 'cskplan_api' %}">COSMO-SkyMed Plan API</a></li>
+        <li><a href="{% url 'rsplan_api' %}">RADARSAT-2 Plan API</a></li>
+    </ul>
+</div>
+{% endblock content %}
