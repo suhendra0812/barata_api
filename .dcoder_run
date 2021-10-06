@@ -1,9 +1,6 @@
 # write commands to install modules/lib and run your project, one in each line.
 # python3, pip and poetry commands are available along with other basic linux commands.
 # command to run project, replace ${FILE_NAME} with your main file
-poetry run git config --global user.email "suhendra0812@gmail.com"
-poetry run git config --global user.name "Suhendra"
 poetry run git add .
-poetry run git commit -m "edit from dcoder"
-poetry run git remote add origin https://github.com/suhendra0812/barata_api.git
-poetry run git push
+poetry run git commit -m "add gitignore"
+poetry run git push origin main
