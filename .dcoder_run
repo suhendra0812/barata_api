@@ -1,8 +1,0 @@
-# write commands to install modules/lib and run your project, one in each line.
-# python3, pip and poetry commands are available along with other basic linux commands.
-# command to run project, replace ${FILE_NAME} with your main file
-poetry run git add .
-poetry run git commit -m "add gitignore"
-poetry run git remote remove origin
-poetry run git remote add origin https://suhendra0812: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@github.com/suhendra0812/barata_api.git
-poetry run git push origin main
