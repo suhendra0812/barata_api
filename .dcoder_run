@@ -4,5 +4,5 @@
 poetry run git add .
 poetry run git commit -m "add gitignore"
 poetry run git remote remove origin
-poetry run git remote add origin https://suhendra0812:kuningan08121995@github.com/suhendra0812/barata_api.git
+poetry run git remote add origin https://suhendra0812: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@github.com/suhendra0812/barata_api.git
 poetry run git push origin main
